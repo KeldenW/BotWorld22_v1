@@ -7,6 +7,7 @@ import actor.GameObject;
 import actor.Scissors;
 import grid.Location;
 import grid.RatBotsGrid;
+import gui.RatBotsArena;
 import world.BotWorld;
 
 public class ScissorsHunter extends BotBrain {
@@ -25,7 +26,7 @@ public class ScissorsHunter extends BotBrain {
             b.step();
         }
 
-        getScissors(b.getArena().);
+        getScissors(b.getArena());
     }
 
 
@@ -33,6 +34,18 @@ public class ScissorsHunter extends BotBrain {
     private ArrayList<Scissors> getScissors(GameObject[][] arena) {
         ArrayList<Scissors> arr = new ArrayList<Scissors>();
         for (GameObject[] a: arena) {
+            for (GameObject g: a) {
+                if (g instanceof Scissors) {
+                    arr.add((Scissors)g);
+                }
+            }
+        }
+        return arr;
+    }
+
+    private ArrayList<Scissors> getScissors(RatBotsArena arena) {
+        ArrayList<Scissors> arr = new ArrayList<Scissors>();
+        for (GameObject[] a: arena.) {
             for (GameObject g: a) {
                 if (g instanceof Scissors) {
                     arr.add((Scissors)g);
